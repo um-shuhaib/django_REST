@@ -1,0 +1,11 @@
+DRF
+web API - Application programming interface
+authentication - basic authentication,token authentication-token and JWT authentication - have time limit
+
+json - javascript object notation
+
+conversion - serialisation (py native to json) and deserialisation(json to py native)
+
+serialisation module.
+
+json module
