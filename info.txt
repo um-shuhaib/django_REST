@@ -9,3 +9,9 @@ conversion - serialisation (py native to json) and deserialisation(json to py na
 serialisation module.
 
 json module
+
+
+
+
+pip install djangorestframework
+add to installed app
