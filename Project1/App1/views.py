@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from App1.models import Student
-from App1.serializer import StudentSerializer
+from App1.serializer import StudentSerializer,StudentModelSerializer
 from rest_framework import status
 
 # Create your views here.
@@ -48,5 +48,19 @@ class SudentDetailView(APIView):
         stud.save()
         return Response({"msg":"data updated"})
 
-    
+class StudentModelView(APIView):
+    def get(self,request):
+        student=Student.objects.all()
+        serialiser=StudentModelSerializer(student,many=True)
+        return Response(data=serialiser.data)
+    def post(self,request):
+        serialiser=StudentModelSerializer(data=request.data)
+        if serialiser.is_valid():
+            serialiser.save()
+            return Response(data=serialiser.data)
+        else:
+            return Response(data=serialiser.errors)
+
+class StudentModelDetailView(APIView):
+    def get
 
