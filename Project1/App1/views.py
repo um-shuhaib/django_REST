@@ -62,5 +62,17 @@ class StudentModelView(APIView):
             return Response(data=serialiser.errors)
 
 class StudentModelDetailView(APIView):
-    def get
+    def get(self,request,**kwargs):
+        stud=Student.objects.get(id=kwargs.get("id"))
+        serializer=StudentModelSerializer(stud)
+        return Response(data=serializer.data)
+    def delete(self,request,**kwargs):
+        Student.objects.get(id=kwargs.get("id")).delete()
+        return Response({"msg":"data deleted"})
+    def put(self,request,**kwargs):
+        stud=Student.objects.get(id=kwargs.get("id"))
+        serializer=StudentModelSerializer(stud,data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"msg":"data updated"})
 

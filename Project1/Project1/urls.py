@@ -24,4 +24,5 @@ urlpatterns = [
     path("student",views.StudentView.as_view()),
     path("student/<int:id>",views.SudentDetailView.as_view()),
     path("model",views.StudentModelView.as_view()),
+    path("model/<int:id>",views.StudentModelDetailView.as_view()),
 ]
